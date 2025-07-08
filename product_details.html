@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ product.name }}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <h1 id="product-name">{{ product.name }}</h1>
+    <p id="product-description">{{ product.description }}</p>
+    <p id="certification">{{ product.certification }}</p>
+
+    {% if product.researchLink %}
+        <a id="research-link" href="{{ product.researchLink }}">Verified Research on Blue Light</a>
+    {% endif %}
+
+    <div id="qr-code" data-url="{{ product.micrositeUrl }}"></div>
+
+    <p><a href="{% url 'index' %}">Back to products</a></p>
+
+    <script src="{% static 'products/script.js' %}"></script>
+</body>
+</html>
